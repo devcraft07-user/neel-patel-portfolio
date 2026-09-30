@@ -1,0 +1,22 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow1" x="220" y="-260" width="584" height="584" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="60" result="effect1_foregroundBlur"/>
+    </filter>
+    <filter id="glow2" x="780" y="273" width="680" height="677" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="70" result="effect1_foregroundBlur"/>
+    </filter>
+    <filter id="glow3" x="-60" y="659" width="520" height="520" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur"/>
+    </filter>
+  </defs>
+  <rect x="320" y="-160" width="384" height="384" rx="12" fill="#AEC6FF" fill-opacity="0.10" filter="url(#glow1)"/>
+  <rect x="880" y="373" width="480" height="477" rx="12" fill="#7BD0FF" fill-opacity="0.05" filter="url(#glow2)"/>
+  <rect x="40" y="759" width="320" height="320" rx="12" fill="#8656F0" fill-opacity="0.10" filter="url(#glow3)"/>
+</svg>
