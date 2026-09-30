@@ -3,6 +3,7 @@
 import * as React from "react";
 import { motion, useInView } from "framer-motion";
 import { SectionContainer } from "@/components/layout/SectionContainer";
+import { siteConfig } from "@/config/site";
 import {
   ContactLocationPinIcon,
   ContactNetworkShareIcon,
@@ -36,7 +37,7 @@ export function ContactSection() {
   const [subject, setSubject] = React.useState(SUBJECT_OPTIONS[0]);
   const [formState] = React.useState<"idle" | "submitting">("idle");
 
-  const email = "neel.acquaint.0149@gmail.com";
+  const email = siteConfig.email;
 
   function handleCopy() {
     navigator.clipboard.writeText(email).then(() => {
@@ -197,7 +198,7 @@ export function ContactSection() {
                   </span>
                 </div>
                 <a
-                  href="https://www.linkedin.com/in/neel-patel"
+                  href={siteConfig.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#AEC6FF] text-[14px] font-medium hover:text-[#7BD0FF] transition-colors"
@@ -382,7 +383,7 @@ export function ContactSection() {
           <div className="flex flex-col items-start sm:items-end gap-3">
             <div className="flex items-center gap-3">
               <a
-                href="https://www.linkedin.com/in/neel-patel"
+                href={siteConfig.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 px-4 py-1.5 rounded-[2px] bg-[#1C1F2A] text-[#DFE2F1] text-[11px] font-mono hover:bg-[#262A35] transition-colors border border-[#262A35]/40"

@@ -109,9 +109,10 @@ export function Navbar() {
             {/* Desktop CTAs — #1:783 */}
             <div className="hidden md:flex items-center gap-4">
               <a
-                href="/resume.pdf"
+                href={siteConfig.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                download="Neel_Patel_Resume.pdf"
                 className="flex items-center gap-1 px-4 py-1 rounded-xs bg-[#171B26] text-[#DFE2F1] text-[11px] leading-[14px] tracking-[0.02em] font-normal shadow-[0_1px_8px_0_rgba(0,0,0,0.04)] hover:bg-[#1E2330] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7BD0FF]"
               >
                 <HeaderDownloadIcon className="size-[10.67px] shrink-0" fill="#7BD0FF" />
@@ -125,9 +126,10 @@ export function Navbar() {
             {/* Mobile Actions matching Frame 17:1328 */}
             <div className="flex md:hidden items-center gap-2">
               <a
-                href="/resume.pdf"
+                href={siteConfig.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                download="Neel_Patel_Resume.pdf"
                 className="flex items-center justify-center size-8 rounded-lg bg-[#171B26] text-[#C1C6D7] hover:text-[#00D7F4] hover:bg-[#1E2330] transition-colors"
                 aria-label="Download Resume"
               >
@@ -187,9 +189,10 @@ export function Navbar() {
           ))}
           <div className="pt-4 px-4">
             <a
-              href="/resume.pdf"
+              href={siteConfig.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
+              download="Neel_Patel_Resume.pdf"
               className="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-[#0070F3] text-white font-medium transition-colors hover:bg-[#0060D0]"
             >
               <svg className="size-4" viewBox="0 0 14 14" fill="currentColor">

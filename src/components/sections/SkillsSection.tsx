@@ -3,6 +3,7 @@
 import * as React from "react";
 import { motion, useInView } from "framer-motion";
 import { SectionContainer } from "@/components/layout/SectionContainer";
+import { siteConfig } from "@/config/site";
 import {
   SkillsHeaderIcon,
   SkillsCatFrontendIcon,
@@ -383,9 +384,10 @@ export function SkillsSection() {
 
             <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto">
               <a
-                href="/assets/resume.pdf"
+                href={siteConfig.resumeUrl}
                 target="_blank"
                 rel="noreferrer"
+                download="Neel_Patel_Resume.pdf"
                 className="flex items-center justify-center gap-2 px-4 py-2 rounded-[2px] bg-[#262A35] text-[#DFE2F1] text-[11px] font-medium hover:bg-[#313540] transition-colors border border-[#313540]/60 shadow-sm"
               >
                 <SkillsCalloutLink1Icon className="size-[11px] text-[#7BD0FF]" />

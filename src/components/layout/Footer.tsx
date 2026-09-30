@@ -3,6 +3,7 @@
 import * as React from "react";
 
 import { SectionContainer } from "@/components/layout/SectionContainer";
+import { siteConfig } from "@/config/site";
 
 export function Footer() {
   return (
@@ -21,7 +22,7 @@ export function Footer() {
 
           <div className="flex items-center gap-6">
             <a
-              href="https://www.linkedin.com/in/neel-patel"
+              href={siteConfig.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#C1C6D7] hover:text-[#DFE2F1] transition-colors text-[11px] font-mono"
@@ -37,7 +38,7 @@ export function Footer() {
               GitHub
             </a>
             <a
-              href="mailto:neel.acquaint.0149@gmail.com"
+              href={`mailto:${siteConfig.email}`}
               className="text-[#C1C6D7] hover:text-[#DFE2F1] transition-colors text-[11px] font-mono"
             >
               Email

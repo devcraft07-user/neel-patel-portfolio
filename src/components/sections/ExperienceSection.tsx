@@ -3,6 +3,7 @@
 import * as React from "react";
 import { motion, useInView } from "framer-motion";
 import { SectionContainer } from "@/components/layout/SectionContainer";
+import { siteConfig } from "@/config/site";
 import {
   EvolutionBannerIcon,
   StepperPhase1Icon,
@@ -592,9 +593,10 @@ export function ExperienceSection() {
             {/* Action Buttons */}
             <div className="relative flex items-center gap-2.5 shrink-0 flex-wrap w-full sm:w-auto">
               <a
-                href="/assets/resume.pdf"
+                href={siteConfig.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                download="Neel_Patel_Resume.pdf"
                 className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-[2px] bg-[#0070F3] text-white text-[12px] font-medium hover:bg-[#0060D0] transition-colors shadow-[0_0_15px_rgba(0,112,243,0.3)]"
               >
                 <DownloadResumeTrayIcon className="size-3" />

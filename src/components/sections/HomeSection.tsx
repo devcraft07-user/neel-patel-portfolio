@@ -3,6 +3,7 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import { SectionContainer } from "@/components/layout/SectionContainer";
+import { siteConfig } from "@/config/site";
 import {
   TagIcon,
   PrimaryCtaArrow,
@@ -212,9 +213,10 @@ export function HomeSection() {
                 </a>
 
                 <a
-                  href="/resume.pdf"
+                  href={siteConfig.resumeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  download="Neel_Patel_Resume.pdf"
                   className="flex items-center gap-2 px-4 py-2 rounded-[2px] bg-[#171B26] shadow-[0_1px_2px_0_rgba(0,0,0,0.05)] text-[#DFE2F1] text-[12px] leading-[16px] font-medium hover:bg-[#1E2330] transition-colors duration-200"
                 >
                   <DownloadDocIcon className="w-[10.67px] h-[13.33px] shrink-0" fill="#7BD0FF" />
@@ -245,7 +247,7 @@ export function HomeSection() {
 
                 <div className="flex items-center gap-2">
                   <a
-                    href="https://linkedin.com/in/neel-patel"
+                    href={siteConfig.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center p-1 rounded-[2px] bg-[#0A0E18] text-[#C1C6D7] hover:text-[#DFE2F1] transition-colors"
