@@ -29,14 +29,16 @@ export function Footer() {
             >
               LinkedIn
             </a>
-            <a
-              href="https://github.com/neel-patel"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#C1C6D7] hover:text-[#DFE2F1] transition-colors text-[11px] font-mono"
-            >
-              GitHub
-            </a>
+            {siteConfig.IS_GIT_SHOW && (
+              <a
+                href={siteConfig.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#C1C6D7] hover:text-[#DFE2F1] transition-colors text-[11px] font-mono"
+              >
+                GitHub
+              </a>
+            )}
             <a
               href={`mailto:${siteConfig.email}`}
               className="text-[#C1C6D7] hover:text-[#DFE2F1] transition-colors text-[11px] font-mono"

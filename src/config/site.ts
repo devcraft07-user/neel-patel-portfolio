@@ -8,8 +8,11 @@ export const siteConfig = {
   resumeUrl: "/resume/Neel_Patel_Resume.pdf",
   email: "neelofficial19@gmail.com",
   linkedin: "https://www.linkedin.com/in/neel-patel-97079214a",
+  github: "https://github.com/neel-patel",
+  IS_GIT_SHOW: false,
 } as const;
 
 export type SiteConfig = typeof siteConfig;
+
 
 

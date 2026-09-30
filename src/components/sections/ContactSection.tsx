@@ -391,15 +391,17 @@ export function ContactSection() {
                 LinkedIn
                 <BannerLinkedinArrowIcon className="w-[9px] h-[9px] text-[#DFE2F1]" />
               </a>
-              <a
-                href="https://github.com/neel-patel"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-4 py-1.5 rounded-[2px] bg-[#1C1F2A] text-[#DFE2F1] text-[11px] font-mono hover:bg-[#262A35] transition-colors border border-[#262A35]/40"
-              >
-                GitHub
-                <BannerGithubCodeIcon className="w-[12px] h-[7px] text-[#DFE2F1]" />
-              </a>
+              {siteConfig.IS_GIT_SHOW && (
+                <a
+                  href={siteConfig.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 px-4 py-1.5 rounded-[2px] bg-[#1C1F2A] text-[#DFE2F1] text-[11px] font-mono hover:bg-[#262A35] transition-colors border border-[#262A35]/40"
+                >
+                  GitHub
+                  <BannerGithubCodeIcon className="w-[12px] h-[7px] text-[#DFE2F1]" />
+                </a>
+              )}
               <a
                 href={`mailto:${email}`}
                 className="flex items-center gap-1.5 px-4 py-1.5 rounded-[2px] bg-[#1C1F2A] text-[#DFE2F1] text-[11px] font-mono hover:bg-[#262A35] transition-colors border border-[#262A35]/40"

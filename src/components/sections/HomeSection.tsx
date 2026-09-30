@@ -255,18 +255,22 @@ export function HomeSection() {
                   >
                     <FigmaLinkedInIcon className="size-4 shrink-0" fill="#C1C6D7" />
                   </a>
-                  <a
-                    href="https://github.com/neel-patel"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center p-1 rounded-[2px] bg-[#0A0E18] text-[#C1C6D7] hover:text-[#DFE2F1] transition-colors"
-                    aria-label="GitHub"
-                  >
-                    <FigmaGitHubIcon className="size-4 shrink-0" fill="#C1C6D7" />
-                  </a>
-                  <span className="text-[#8B90A0] text-[11px] leading-[14px] tracking-[0.02em]">
-                    @neelpatel-dev
-                  </span>
+                  {siteConfig.IS_GIT_SHOW && (
+                    <>
+                      <a
+                        href={siteConfig.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center p-1 rounded-[2px] bg-[#0A0E18] text-[#C1C6D7] hover:text-[#DFE2F1] transition-colors"
+                        aria-label="GitHub"
+                      >
+                        <FigmaGitHubIcon className="size-4 shrink-0" fill="#C1C6D7" />
+                      </a>
+                      <span className="text-[#8B90A0] text-[11px] leading-[14px] tracking-[0.02em]">
+                        @neelpatel-dev
+                      </span>
+                    </>
+                  )}
                 </div>
               </div>
             </motion.div>
