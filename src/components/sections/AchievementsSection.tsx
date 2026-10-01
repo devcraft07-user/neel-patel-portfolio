@@ -19,6 +19,7 @@ interface MetricCard {
   tag: string;
   tagDotColor: string;
   tagTextColor: string;
+  topGradientVia: string;
   metric: string;
   label: string;
   description: string;
@@ -30,37 +31,41 @@ const metricCards: MetricCard[] = [
     tag: "PROD ACTIVE",
     tagDotColor: "#7BD0FF",
     tagTextColor: "#7BD0FF",
+    topGradientVia: "#AEC6FF",
     metric: "4+",
     label: "Years Experience",
     description: "Professional software development across web and backend architectures.",
-    icon: <MetricProdActiveIcon className="w-[15px] h-[15px] text-[#8B90A0]" />,
+    icon: <MetricProdActiveIcon className="w-[15px] h-[15px] text-[#8B90A0] group-hover:text-[#AEC6FF] transition-colors" />,
   },
   {
     tag: "APPLICATIONS",
     tagDotColor: "#00A6E0",
     tagTextColor: "#7BD0FF",
+    topGradientVia: "#7BD0FF",
     metric: "8+",
     label: "Production Projects",
     description: "Production applications shipped from concept to deployment.",
-    icon: <MetricApplicationsIcon className="w-[14px] h-[15px] text-[#8B90A0]" />,
+    icon: <MetricApplicationsIcon className="w-[14px] h-[15px] text-[#8B90A0] group-hover:text-[#7BD0FF] transition-colors" />,
   },
   {
     tag: "DOMAINS",
     tagDotColor: "#D0BCFF",
     tagTextColor: "#D0BCFF",
+    topGradientVia: "#D0BCFF",
     metric: "4",
     label: "Business Domains",
     description: "Finance, Healthcare, EdTech, and Food Technology.",
-    icon: <MetricDomainsIcon className="w-[15px] h-[14px] text-[#8B90A0]" />,
+    icon: <MetricDomainsIcon className="w-[15px] h-[14px] text-[#8B90A0] group-hover:text-[#D0BCFF] transition-colors" />,
   },
   {
     tag: "MENTORSHIP",
     tagDotColor: "#0070F3",
     tagTextColor: "#AEC6FF",
+    topGradientVia: "#0070F3",
     metric: "10+",
     label: "Trainees Mentored",
     description: "Junior developers and trainees guided through TypeScript and clean code practices.",
-    icon: <MetricMentorshipIcon className="w-[18px] h-[9px] text-[#8B90A0]" />,
+    icon: <MetricMentorshipIcon className="w-[18px] h-[9px] text-[#8B90A0] group-hover:text-[#AEC6FF] transition-colors" />,
   },
 ];
 
@@ -220,35 +225,45 @@ export function AchievementsSection() {
           {metricCards.map((card, i) => (
             <motion.div
               key={card.label}
-              className="flex flex-col justify-between p-6 rounded-lg bg-[#1C1F2A] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] border border-[#262A35]/30 hover:border-[#262A35] transition-colors"
+              className="group relative flex flex-col justify-between p-6 rounded-xl bg-[#1C1F2A] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] hover:shadow-xl hover:bg-[#262A35] border border-[#262A35]/30 transition-all duration-300 overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-8% 0px" }}
               transition={{ duration: 0.45, delay: i * 0.07, ease }}
             >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#313540]">
-                  <span className="size-1.5 rounded-full" style={{ background: card.tagDotColor }} />
-                  <span
-                    className="text-[11px] font-mono font-medium tracking-[0.02em]"
-                    style={{ color: card.tagTextColor }}
-                  >
-                    {card.tag}
+              <div
+                className="absolute inset-x-0 top-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity"
+                style={{
+                  background: `linear-gradient(90deg, transparent 0%, ${card.topGradientVia} 50%, transparent 100%)`,
+                }}
+              />
+              <div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#313540]">
+                    <span className="size-1.5 rounded-full" style={{ background: card.tagDotColor }} />
+                    <span
+                      className="text-[11px] font-mono font-medium tracking-[0.02em]"
+                      style={{ color: card.tagTextColor }}
+                    >
+                      {card.tag}
+                    </span>
+                  </div>
+                  {card.icon}
+                </div>
+                <div className="flex flex-col gap-0.5 pt-6">
+                  <span className="text-[#DFE2F1] text-[48px] sm:text-[56px] font-semibold leading-[56px] tracking-[-0.025em] group-hover:text-[#AEC6FF] transition-colors">
+                    {card.metric}
+                  </span>
+                  <span className="text-[#DFE2F1] text-[14px] font-medium leading-[20px] tracking-[-0.01em]">
+                    {card.label}
                   </span>
                 </div>
-                {card.icon}
               </div>
-              <div className="flex flex-col gap-0.5 pt-6">
-                <span className="text-[#DFE2F1] text-[48px] sm:text-[56px] font-semibold leading-[56px] tracking-[-0.025em]">
-                  {card.metric}
-                </span>
-                <span className="text-[#DFE2F1] text-[14px] font-medium leading-[20px] tracking-[-0.01em]">
-                  {card.label}
-                </span>
+              <div className="mt-4 pt-3 bg-[#171B26]/60 -mx-6 -mb-6 p-4 border-t border-[#262A35]/20">
+                <p className="text-[#C1C6D7] text-[13px] leading-[18px]">
+                  {card.description}
+                </p>
               </div>
-              <p className="mt-4 text-[#C1C6D7] text-[13px] leading-[18px]">
-                {card.description}
-              </p>
             </motion.div>
           ))}
         </div>
