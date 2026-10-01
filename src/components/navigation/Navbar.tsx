@@ -5,6 +5,12 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 import { HeaderDownloadIcon, HeaderAvatarIcon } from "@/components/icons/FigmaIcons";
+import {
+  DownloadResumeIcon,
+  MenuHamburgerIcon,
+  CloseModalIcon,
+  PersonUserIcon,
+} from "@/components/icons/StitchMobileIcons";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -28,8 +34,11 @@ export function Navbar() {
   React.useEffect(() => {
     const sectionIds = navLinks.map((l) => l.href.slice(1));
     const observers: IntersectionObserver[] = [];
+    const isMobile = window.innerWidth < 768;
     sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
+      const el = isMobile
+        ? (document.getElementById(`mobile-${id}`) || document.getElementById(id))
+        : (document.getElementById(id) || document.getElementById(`mobile-${id}`));
       if (!el) return;
       const obs = new IntersectionObserver(
         ([entry]) => {
@@ -45,8 +54,16 @@ export function Navbar() {
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    const target = href.replace(/^#/, "");
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+    const targetEl = isMobile
+      ? (document.getElementById(`mobile-${target}`) || document.getElementById(target))
+      : (document.getElementById(target) || document.getElementById(`mobile-${target}`));
+    if (targetEl) {
+      const navOffset = 60;
+      const y = targetEl.getBoundingClientRect().top + window.scrollY - navOffset;
+      window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+    }
   };
 
   return (
@@ -123,7 +140,7 @@ export function Navbar() {
               </div>
             </div>
 
-            {/* Mobile Actions matching Frame 17:1328 */}
+            {/* Mobile Actions matching Stitch mobile screens */}
             <div className="flex md:hidden items-center gap-2">
               <a
                 href={siteConfig.resumeUrl}
@@ -133,7 +150,7 @@ export function Navbar() {
                 className="flex items-center justify-center size-8 rounded-lg bg-[#171B26] text-[#C1C6D7] hover:text-[#00D7F4] hover:bg-[#1E2330] transition-colors"
                 aria-label="Download Resume"
               >
-                <HeaderDownloadIcon className="size-[11px] shrink-0" fill="#7BD0FF" />
+                <DownloadResumeIcon className="size-4 text-[#00D7F4]" />
               </a>
               <button
                 className="flex items-center justify-center size-8 rounded-lg text-[#C1C6D7] hover:text-[#DFE2F1] hover:bg-[#171B26] transition-colors"
@@ -142,17 +159,13 @@ export function Navbar() {
                 onClick={() => setMobileOpen((p) => !p)}
               >
                 {mobileOpen ? (
-                  <svg className="size-3.5 text-[#C1C6D7]" viewBox="0 0 12 12" fill="currentColor">
-                    <path d="M1.19997 11.9997L0 10.7997L4.79987 5.99983L0 1.19997L1.19997 0L5.99983 4.79987L10.7997 0L11.9997 1.19997L7.1998 5.99983L11.9997 10.7997L10.7997 11.9997L5.99983 7.1998L1.19997 11.9997Z" />
-                  </svg>
+                  <CloseModalIcon className="size-4 text-[#C1C6D7]" />
                 ) : (
-                  <svg className="w-4 h-3 text-[#DFE2F1]" viewBox="0 0 18 12" fill="currentColor">
-                    <path d="M0 12V10H18V12H0ZM0 7V5H18V7H0ZM0 2V0H18V2H0Z" />
-                  </svg>
+                  <MenuHamburgerIcon className="size-4 text-[#DFE2F1]" />
                 )}
               </button>
-              <div className="flex items-center justify-center size-7 rounded-lg bg-[#AEC6FF] shadow-sm">
-                <HeaderAvatarIcon className="size-3 shrink-0" fill="#002E6B" />
+              <div className="flex items-center justify-center size-7 rounded-lg bg-[#00D7F4] text-[#0A0E18] shadow-sm">
+                <PersonUserIcon className="size-4 text-[#0A0E18]" />
               </div>
             </div>
           </div>
@@ -193,11 +206,10 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               download="Neel_Patel_Resume.pdf"
+              onClick={() => setMobileOpen(false)}
               className="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-[#0070F3] text-white font-medium transition-colors hover:bg-[#0060D0]"
             >
-              <svg className="size-4" viewBox="0 0 14 14" fill="currentColor">
-                <path d="M7.00004 10.5001L2.62502 6.12504L3.85002 4.85628L6.12504 7.13129V0H7.87505V7.13129L10.1501 4.85628L11.3751 6.12504L7.00004 10.5001ZM1.75001 14.0001C1.26876 14.0001 0.856776 13.8287 0.514066 13.486C0.171355 13.1433 0 12.7313 0 12.2501V9.62506H1.75001V12.2501H12.2501V9.62506H14.0001V12.2501C14.0001 12.7313 13.8287 13.1433 13.486 13.486C13.1433 13.8287 12.7313 14.0001 12.2501 14.0001H1.75001Z" />
-              </svg>
+              <DownloadResumeIcon className="size-4 text-white" />
               Download Resume
             </a>
           </div>

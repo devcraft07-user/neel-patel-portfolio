@@ -7,7 +7,7 @@ import { siteConfig } from "@/config/site";
 
 export function Footer() {
   return (
-    <footer className="w-full bg-[#0A0E18] border-t border-[#262A35]/40 shadow-[0px_-1px_8px_0px_rgba(0,0,0,0.04)]">
+    <footer className="hidden md:block w-full bg-[#0A0E18] border-t border-[#262A35]/40 shadow-[0px_-1px_8px_0px_rgba(0,0,0,0.04)]">
       <SectionContainer className="py-6 flex flex-col gap-4">
         {/* Top row (#1:1878) */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">

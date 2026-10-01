@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-canvas: #070A12;
+  --color-canvas: #0F131D;
   --color-container-low: #0B1120;
   --color-container-card: #0F172A;
   --color-container-hover: #162036;
@@ -34,7 +34,7 @@
 }
 
 :root {
-  --background: #070A12;
+  --background: #0F131D;
   --foreground: #CBD5E1;
 }
 
